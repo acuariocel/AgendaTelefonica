@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS `persona`;
 CREATE TABLE `persona` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
   `cedula` varchar(10) DEFAULT NULL,
-  `Nombre` varchar(32) NOT NULL,
+  `nombres` varchar(32) NOT NULL,
   `appPaterno` varchar(32) NOT NULL,
   `appMaterno` varchar(32) DEFAULT NULL,
   `mail` varchar(32) DEFAULT '@gmail.com',

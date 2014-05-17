@@ -6,7 +6,8 @@ public class conectate {
    static String bd = "dbcontactos";
    static String login = "root";
    static String password = "";
-   static String url = "jdbc:mysql://192.168.1.17/"+bd;
+   //static String url = "jdbc:mysql://192.168.1.17/"+bd;
+   static String url = "jdbc:mysql://localhost/"+bd;
 
    Connection conn = null;
 
