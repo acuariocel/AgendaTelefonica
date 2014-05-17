@@ -13,5 +13,5 @@ CREATE TABLE `persona` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 LOCK TABLES `persona` WRITE;
-INSERT INTO `persona` VALUES (1,NULL,'Diego','Romero','Armijos','diegoacuario11@gmail.com',NULL,'09'),(2,NULL,'Yoder','cajas','rivadeneira','tu_correo@gmail.com',NULL,'09'),(3,NULL,'JOSE LUIS','ALVARADO','TORRES','tu_correo@gmail.com',NULL,'09');
+INSERT INTO `persona` VALUES (1,NULL,'Diego','Romero','Armijos','diegoacuario11@gmail.com',24,'09'),(2,NULL,'Yoder','cajas','rivadeneira','tu_correo@gmail.com',NULL,'09'),(3,NULL,'JOSE LUIS','ALVARADO','TORRES','tu_correo@gmail.com',NULL,'09');
 UNLOCK TABLES;

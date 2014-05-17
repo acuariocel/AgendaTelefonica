@@ -30,6 +30,8 @@ public class tablaform extends javax.swing.JFrame {
         txtpaterno = new javax.swing.JTextField();
         txtmaterno = new javax.swing.JTextField();
         txtmail = new javax.swing.JTextField();
+        gy = new javax.swing.JLabel();
+        txtedad = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         cmdRegistro = new javax.swing.JButton();
         cmdNuevo = new javax.swing.JButton();
@@ -125,6 +127,8 @@ public class tablaform extends javax.swing.JFrame {
             }
         });
 
+        gy.setText("Edad");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -144,7 +148,13 @@ public class tablaform extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtmaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtname, javax.swing.GroupLayout.DEFAULT_SIZE, 492, Short.MAX_VALUE)
-                    .addComponent(txtmail, javax.swing.GroupLayout.DEFAULT_SIZE, 492, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(txtmail, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(gy)
+                        .addGap(41, 41, 41)
+                        .addComponent(txtedad, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(47, 47, 47)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -163,7 +173,10 @@ public class tablaform extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txtmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(gy)
+                        .addComponent(txtedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -266,7 +279,8 @@ public class tablaform extends javax.swing.JFrame {
         String pat = txtpaterno.getText();
         String mat = txtmaterno.getText();      
         String mail = txtmail.getText();
-        p.NuevaPersona(name, mat, pat, mail);        
+        String edad = gy.getText();
+        p.NuevaPersona(name, mat, pat, mail, edad);        
         updateTabla(); 
     }//GEN-LAST:event_cmdRegistroActionPerformed
 
@@ -300,7 +314,8 @@ public class tablaform extends javax.swing.JFrame {
         String pat = txtpaterno.getText();
         String mat = txtmaterno.getText();      
         String mail = txtmail.getText();        
-        p.updatePersona(codigo, name, pat, mat, mail);
+        String edad = txtedad.getText();        
+        p.updatePersona(codigo, name, pat, mat, mail,edad);
         updateTabla(); 
         }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -376,6 +391,7 @@ public class tablaform extends javax.swing.JFrame {
     private javax.swing.JButton cmdEliminar;
     private javax.swing.JButton cmdNuevo;
     private javax.swing.JButton cmdRegistro;
+    private javax.swing.JLabel gy;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -387,6 +403,7 @@ public class tablaform extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabla;
+    private javax.swing.JTextField txtedad;
     private javax.swing.JTextField txtmail;
     private javax.swing.JTextField txtmaterno;
     private javax.swing.JTextField txtname;

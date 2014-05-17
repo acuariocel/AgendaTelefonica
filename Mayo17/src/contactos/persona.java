@@ -35,14 +35,14 @@ public class persona {
                     + "appPaterno = ? ,"
                     + "appMaterno = ? ,"
                     + "mail = ? ,"
-                    + "edad = ? "
+                    + "edad = ? "//agrege 
                     + "where id = ? ");
             pstm.setString(1, name);
             pstm.setString(2, paterno);
             pstm.setString(3, materno);
             pstm.setString(4, mail);
-            pstm.setString(5, edad);
-            pstm.setString(6, String.valueOf(id));
+            pstm.setString(5, edad);//agrege 
+            pstm.setString(6, String.valueOf(id));//modifice
             pstm.execute();
             pstm.close();
         } catch (SQLException e) {
@@ -75,7 +75,7 @@ public class persona {
             System.out.println(e);
         }
 
-        Object[][] data = new String[registros][5];
+        Object[][] data = new String[registros][6];
         //realizamos la consulta sql y llenamos los datos en "Object"
         try {
             PreparedStatement pstm = con.getConnection().prepareStatement("SELECT "
