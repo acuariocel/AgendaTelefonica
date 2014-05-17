@@ -56,7 +56,7 @@ public class tablaform extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Edad"
+                "Nombres", "Title 2", "Title 3", "Title 4", "Edad"
             }
         ) {
             Class[] types = new Class [] {
@@ -67,6 +67,7 @@ public class tablaform extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        tabla.setToolTipText("");
         tabla.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tablaMouseClicked(evt);
@@ -110,13 +111,19 @@ public class tablaform extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel1.setText("Nombre:");
+        jLabel1.setText("Nombres:");
 
         jLabel2.setText("Ap. Paterno:");
 
         jLabel3.setText("Ap. Materno:");
 
         jLabel4.setText("e-mail:");
+
+        txtname.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtnameActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -323,9 +330,13 @@ public class tablaform extends javax.swing.JFrame {
        jPanel3.add(jp3);
      
     }//GEN-LAST:event_formWindowActivated
+
+    private void txtnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtnameActionPerformed
     
     private void updateTabla(){             
-        String[] columNames = {"id","Nombre","ap. Paterno","ap. Materno", "E-Mail"};  
+        String[] columNames = {"id","Nombres","Apellido 1","Apellido 2", "E-Mail", "Edad"};  
         // se utiliza la funcion
         dtPer = p.getDatos();
                
