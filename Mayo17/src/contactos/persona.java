@@ -11,15 +11,16 @@ public class persona {
     }
 
     /*Añade un nuevo registro*/
-    public void NuevaPersona(String name, String ap, String am, String mail) {
+    public void NuevaPersona(String name, String ap, String am, String mail, String edad) {
         try {
             PreparedStatement pstm = con.getConnection().prepareStatement("insert into "
                     + "persona(nombres, appPaterno, appMaterno, mail) "
-                    + " values(?,?,?,?)");
+                    + " values(?,?,?,?,?)");
             pstm.setString(1, name);
             pstm.setString(2, ap);
             pstm.setString(3, am);
             pstm.setString(4, mail);
+            pstm.setString(5, edad);
             pstm.execute();
             pstm.close();
         } catch (SQLException e) {
@@ -27,19 +28,21 @@ public class persona {
         }
     }
 
-    public void updatePersona(String id, String name, String paterno, String materno, String mail) {
+    public void updatePersona(String id, String name, String paterno, String materno, String mail,String edad) {
         try {
             PreparedStatement pstm = con.getConnection().prepareStatement("update persona "
                     + "set nombres = ? ,"
                     + "appPaterno = ? ,"
                     + "appMaterno = ? ,"
-                    + "mail = ? "
+                    + "mail = ? ,"
+                    + "edad = ? "
                     + "where id = ? ");
             pstm.setString(1, name);
             pstm.setString(2, paterno);
             pstm.setString(3, materno);
             pstm.setString(4, mail);
-            pstm.setString(5, String.valueOf(id));
+            pstm.setString(5, edad);
+            pstm.setString(6, String.valueOf(id));
             pstm.execute();
             pstm.close();
         } catch (SQLException e) {
@@ -76,7 +79,7 @@ public class persona {
         //realizamos la consulta sql y llenamos los datos en "Object"
         try {
             PreparedStatement pstm = con.getConnection().prepareStatement("SELECT "
-                    + " id, nombres, appPaterno, appMaterno, mail "
+                    + " id, nombres, appPaterno, appMaterno, mail, edad "
                     + " FROM persona"
                     + " ORDER BY id ");
             ResultSet res = pstm.executeQuery();
@@ -87,11 +90,13 @@ public class persona {
                 String estpaterno = res.getString("appPaterno");
                 String estmaterno = res.getString("appMaterno");
                 String estmail = res.getString("mail");
+                String edad = res.getString("edad");
                 data[i][0] = estCodigo;
                 data[i][1] = estNombre;
                 data[i][2] = estpaterno;
                 data[i][3] = estmaterno;
                 data[i][4] = estmail;
+                data[i][5] = edad;
                 i++;
             }
             res.close();
