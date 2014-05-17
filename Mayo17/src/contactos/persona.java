@@ -83,7 +83,7 @@ public class persona {
             int i = 0;
             while (res.next()) {
                 String estCodigo = res.getString("id");
-                String estNombre = res.getString("nombre");
+                String estNombre = res.getString("nombres");
                 String estpaterno = res.getString("appPaterno");
                 String estmaterno = res.getString("appMaterno");
                 String estmail = res.getString("mail");
