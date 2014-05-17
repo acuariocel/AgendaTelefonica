@@ -14,7 +14,7 @@ public class persona {
     public void NuevaPersona(String name, String ap, String am, String mail) {
         try {
             PreparedStatement pstm = con.getConnection().prepareStatement("insert into "
-                    + "persona(Nombre, appPaterno, appMaterno, mail) "
+                    + "persona(nombres, appPaterno, appMaterno, mail) "
                     + " values(?,?,?,?)");
             pstm.setString(1, name);
             pstm.setString(2, ap);
@@ -30,7 +30,7 @@ public class persona {
     public void updatePersona(String id, String name, String paterno, String materno, String mail) {
         try {
             PreparedStatement pstm = con.getConnection().prepareStatement("update persona "
-                    + "set Nombre = ? ,"
+                    + "set nombres = ? ,"
                     + "appPaterno = ? ,"
                     + "appMaterno = ? ,"
                     + "mail = ? "
@@ -76,7 +76,7 @@ public class persona {
         //realizamos la consulta sql y llenamos los datos en "Object"
         try {
             PreparedStatement pstm = con.getConnection().prepareStatement("SELECT "
-                    + " id, Nombre, appPaterno, appMaterno, mail "
+                    + " id, nombres, appPaterno, appMaterno, mail "
                     + " FROM persona"
                     + " ORDER BY id ");
             ResultSet res = pstm.executeQuery();
