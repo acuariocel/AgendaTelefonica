@@ -29,26 +29,28 @@ public class Personas {
         }
     }
 
-    public boolean updatePersona(int id, String name, String paterno, String materno, String mail,int edad) {
+    public boolean updatePersona(int id, String name, String paterno, String materno, String mail,int edad,String celular) {
         try {
             PreparedStatement pstm = con.getConnection().prepareStatement("update persona "
                     + "set nombres = ? ,"
                     + "appPaterno = ? ,"
                     + "appMaterno = ? ,"
                     + "mail = ? ,"
-                    + "edad = ? "//agrege 
+                    + "edad = ? ,"
+                    + "celular= ? " 
                     + "where id = ? ");
             pstm.setString(1, name);
             pstm.setString(2, paterno);
             pstm.setString(3, materno);
             pstm.setString(4, mail);
-            pstm.setInt(5, edad);//agrege 
-            pstm.setInt(6, id);//modifice
+            pstm.setInt(5, edad); 
+            pstm.setString(6, celular);
+            pstm.setInt(7, id);//modifice
             pstm.execute();
             pstm.close();
             return true;
         } catch (SQLException e) {
-            //System.out.println(e);
+            System.out.println(e);
             return false;
         }
     }

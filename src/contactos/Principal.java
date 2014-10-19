@@ -1,6 +1,7 @@
 package contactos;
 
 import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
@@ -171,6 +172,11 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        txtcelular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcelularActionPerformed(evt);
+            }
+        });
         txtcelular.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtcelularKeyTyped(evt);
@@ -338,7 +344,7 @@ public class Principal extends javax.swing.JFrame {
         int edad;
         try {
             edad = Integer.parseInt(txtedad.getText());
-            
+
         } catch (NumberFormatException e) {
             edad = -1;
         }
@@ -358,6 +364,7 @@ public class Principal extends javax.swing.JFrame {
             txtmaterno.setText(String.valueOf(tabla.getValueAt(fila, 3)));
             txtmail.setText(String.valueOf(tabla.getValueAt(fila, 4)));
             txtedad.setText(String.valueOf(tabla.getValueAt(fila, 5)));
+            txtcelular.setText(String.valueOf(tabla.getValueAt(fila, 6)));
         }
     }//GEN-LAST:event_tablaMouseClicked
 
@@ -376,15 +383,23 @@ public class Principal extends javax.swing.JFrame {
             String name = txtname.getText();
             String pat = txtpaterno.getText();
             String mat = txtmaterno.getText();
-            String mail = txtmail.getText();
+            String correo = txtmail.getText();
+            String celu = txtcelular.getText();
             int edad;
             try {
                 edad = Integer.parseInt(txtedad.getText());
             } catch (Exception e) {
                 edad = -1;
             }
-            p.updatePersona(id, name, pat, mat, mail, edad);
-            updateTabla();
+            if (p.updatePersona(id, name, pat, mat, correo, edad, celu)) {
+
+                updateTabla();
+                JOptionPane.showMessageDialog(this, "Datos actualizados correctamente");
+            } else {
+                JOptionPane.showMessageDialog(this, "No se pudo actualizar", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Debe seleccionr una fila para actualizar");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -395,19 +410,19 @@ public class Principal extends javax.swing.JFrame {
         Panelcito pp = new Panelcito(w, h);
         this.add(pp);
         this.repaint();
-        
+
         Panelcito pb = new Panelcito(jPanel4.getWidth(), jPanel4.getHeight(), 1);
         jPanel4.add(pb);
         jPanel4.repaint();
-        
+
         Degradado jp1 = new Degradado();
         jp1.setSize(this.getSize());
         jPanel1.add(jp1);
-        
+
         Degradado jp2 = new Degradado();
         jp2.setSize(this.getSize());
         jPanel2.add(jp2);
-        
+
         Degradado jp3 = new Degradado();
         jp3.setSize(this.getSize());
         jPanel3.add(jp3);
@@ -415,37 +430,46 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void txtnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnameActionPerformed
-      
+
     }//GEN-LAST:event_txtnameActionPerformed
 
     private void txtcelularKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcelularKeyTyped
         soloNumeros(evt);
+         String ncel= txtcelular.getText();
+        if (ncel.length()>9) {
+            evt.consume();
+        }
     }//GEN-LAST:event_txtcelularKeyTyped
 
     private void txtnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnameKeyTyped
-        soloLetras(evt);
+        validaNombres(evt);
     }//GEN-LAST:event_txtnameKeyTyped
 
     private void txtedadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtedadKeyTyped
-        soloNumeros(evt);       
+        soloNumeros(evt);
     }//GEN-LAST:event_txtedadKeyTyped
 
     private void txtpaternoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtpaternoKeyTyped
-        soloLetras(evt);        
+        validaNombres(evt);
     }//GEN-LAST:event_txtpaternoKeyTyped
 
     private void txtmaternoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtmaternoKeyTyped
-        soloLetras(evt);     
+        validaNombres(evt);
     }//GEN-LAST:event_txtmaternoKeyTyped
 
     private void txtmailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtmailKeyReleased
-txtmail.setText(txtmail.getText().toLowerCase());        
+        txtmail.setText(txtmail.getText().toLowerCase());
     }//GEN-LAST:event_txtmailKeyReleased
-    
-    public void soloLetras(KeyEvent e) {
+
+    private void txtcelularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcelularActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtcelularActionPerformed
+
+    public void validaNombres(KeyEvent e) {
         char c = e.getKeyChar();
         c = (c + "").toLowerCase().charAt(0);
-        if ((c < 'a' || c > 'z') && c != 'ñ' && c !=' ') {
+        System.out.println(c);
+        if ((c < 'a' || c > 'z') && c != 'ñ' && c != ' ' && c != 'á' && c != 'é' && c != 'í' && c != 'ó' && c != 'ú') {
             e.consume();
         }
     }
@@ -456,7 +480,7 @@ txtmail.setText(txtmail.getText().toLowerCase());
             e.consume();
         }
     }
-    
+
     private void updateTabla() {
         String[] columNames = {"id", "Nombres", "Apellido 1", "Apellido 2", "E-Mail", "Edad", "Celular"};
         // se utiliza la funcion
@@ -467,7 +491,7 @@ txtmail.setText(txtmail.getText().toLowerCase());
             boolean[] canEdit = new boolean[]{
                 false, false, false, false, false, false, false
             };
-            
+
             @Override
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit[columnIndex];
@@ -480,7 +504,7 @@ txtmail.setText(txtmail.getText().toLowerCase());
         columna.setMinWidth(10);
         columna.setMaxWidth(30);
     }
-    
+
     private void nuevo() {
         txtname.setText("");
         txtpaterno.setText("");
@@ -494,7 +518,7 @@ txtmail.setText(txtmail.getText().toLowerCase());
     Personas p = new Personas();
     Object[][] dtPer;
     int fila = -1;
-    
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
