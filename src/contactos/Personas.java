@@ -11,16 +11,16 @@ public class Personas {
     }
 
     /*Añade un nuevo registro*/
-    public void NuevaPersona(String name, String ap, String am, String mail, String edad) {
+    public void NuevaPersona(String name, String ap, String am, String mail, int edad) {
         try {
             PreparedStatement pstm = con.getConnection().prepareStatement("insert into "
-                    + "persona(nombres, appPaterno, appMaterno, mail) "
+                    + "persona(nombres, appPaterno, appMaterno, mail, edad) "
                     + " values(?,?,?,?,?)");
             pstm.setString(1, name);
             pstm.setString(2, ap);
             pstm.setString(3, am);
             pstm.setString(4, mail);
-            pstm.setString(5, edad);
+            pstm.setInt(5, edad);
             pstm.execute();
             pstm.close();
         } catch (SQLException e) {
@@ -79,7 +79,7 @@ public class Personas {
         //realizamos la consulta sql y llenamos los datos en "Object"
         try {
             PreparedStatement pstm = con.getConnection().prepareStatement("SELECT "
-                    + " id, nombres, appPaterno, appMaterno, mail, edad "
+                    + "*"
                     + " FROM persona"
                     + " ORDER BY id ");
             ResultSet res = pstm.executeQuery();

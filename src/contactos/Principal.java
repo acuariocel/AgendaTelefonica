@@ -291,7 +291,13 @@ public class Principal extends javax.swing.JFrame {
         String pat = txtpaterno.getText();
         String mat = txtmaterno.getText();
         String mail = txtmail.getText();
-        String edad = gy.getText();
+        int edad;
+        try {
+            edad = Integer.parseInt(txtedad.getText()) ;
+            
+        } catch (NumberFormatException e) {
+            edad = -1;
+        }
         p.NuevaPersona(name, mat, pat, mail, edad);
         updateTabla();
     }//GEN-LAST:event_cmdRegistroActionPerformed
@@ -378,6 +384,7 @@ public class Principal extends javax.swing.JFrame {
             boolean[] canEdit = new boolean[]{
                 false, false, false, false, false
             };
+
             @Override
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit[columnIndex];
