@@ -328,7 +328,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (fila > -1) {
-            String codigo = String.valueOf(tabla.getValueAt(fila, 0));
+            int id = Integer.parseInt(""+tabla.getValueAt(fila, 0));
             String name = txtname.getText();
             String pat = txtpaterno.getText();
             String mat = txtmaterno.getText();
@@ -339,7 +339,7 @@ public class Principal extends javax.swing.JFrame {
             } catch (Exception e) {
                 edad = -1;
             }
-            p.updatePersona(codigo, name, pat, mat, mail, edad);
+            p.updatePersona(id, name, pat, mat, mail, edad);
             updateTabla();
         }
     }//GEN-LAST:event_jButton1ActionPerformed

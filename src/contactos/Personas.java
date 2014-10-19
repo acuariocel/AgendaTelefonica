@@ -11,7 +11,7 @@ public class Personas {
     }
 
     /*Añade un nuevo registro*/
-    public void NuevaPersona(String name, String ap, String am, String mail, int edad) {
+    public boolean NuevaPersona(String name, String ap, String am, String mail, int edad) {
         try {
             PreparedStatement pstm = con.getConnection().prepareStatement("insert into "
                     + "persona(nombres, appPaterno, appMaterno, mail, edad) "
@@ -23,12 +23,13 @@ public class Personas {
             pstm.setInt(5, edad);
             pstm.execute();
             pstm.close();
+            return true;
         } catch (SQLException e) {
-            System.out.println(e);
+           return false;
         }
     }
 
-    public void updatePersona(String id, String name, String paterno, String materno, String mail,int edad) {
+    public boolean updatePersona(int id, String name, String paterno, String materno, String mail,int edad) {
         try {
             PreparedStatement pstm = con.getConnection().prepareStatement("update persona "
                     + "set nombres = ? ,"
@@ -42,11 +43,13 @@ public class Personas {
             pstm.setString(3, materno);
             pstm.setString(4, mail);
             pstm.setInt(5, edad);//agrege 
-            pstm.setString(6, String.valueOf(id));//modifice
+            pstm.setInt(6, id);//modifice
             pstm.execute();
             pstm.close();
+            return true;
         } catch (SQLException e) {
-            System.out.println(e);
+            //System.out.println(e);
+            return false;
         }
     }
 
