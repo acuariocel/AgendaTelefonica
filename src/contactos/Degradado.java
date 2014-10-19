@@ -6,11 +6,11 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
-public class degradadoclass extends javax.swing.JPanel{
+public class Degradado extends javax.swing.JPanel{
     private Color color1 = new Color(66,111,166);
     private Color color2 = new Color(103,174,118);
     
-    public degradadoclass(){
+    public Degradado(){
     }
     
      @Override

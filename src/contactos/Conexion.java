@@ -2,7 +2,7 @@ package contactos;
 
 import java.sql.*;
 
-public class conectate {
+public class Conexion {
    static String bd = "contactosdb";
    static String login = "contactos";
    static String password = "contactos";
@@ -11,7 +11,7 @@ public class conectate {
    Connection conn = null;
 
    /** Constructor de DbConnection */
-   public conectate() {
+   public Conexion() {
       try{
          //obtenemos el driver de para mysql
          Class.forName("com.mysql.jdbc.Driver");

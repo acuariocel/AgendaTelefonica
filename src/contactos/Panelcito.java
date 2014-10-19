@@ -2,14 +2,14 @@ package contactos;
 import java.awt.Graphics;
 import javax.swing.ImageIcon;
 
-public class mipanel extends javax.swing.JPanel {
+public class Panelcito extends javax.swing.JPanel {
     private int b=0;
     
-    public mipanel(int w, int h){    
+    public Panelcito(int w, int h){    
         this.setSize(w,h);
     }
     
-   public mipanel(int w, int h, int b) {
+   public Panelcito(int w, int h, int b) {
         this.b=b;
         this.setSize(w,h);
    }

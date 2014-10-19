@@ -3,12 +3,12 @@ package contactos;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
-public class tablaform extends javax.swing.JFrame {
+public class Principal extends javax.swing.JFrame {
 
     /**
      * Creates new form tablaform
      */
-    public tablaform() {
+    public Principal() {
         initComponents();
     }
 
@@ -277,7 +277,8 @@ public class tablaform extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pack();
+        setSize(new java.awt.Dimension(618, 563));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -341,23 +342,23 @@ public class tablaform extends javax.swing.JFrame {
         this.setTitle("Base de Datos - [Java/MySQL]");
         int w = this.getWidth();
         int h = this.getHeight();
-        mipanel pp = new mipanel(w, h);
+        Panelcito pp = new Panelcito(w, h);
         this.add(pp);
         this.repaint();
 
-        mipanel pb = new mipanel(jPanel4.getWidth(), jPanel4.getHeight(), 1);
+        Panelcito pb = new Panelcito(jPanel4.getWidth(), jPanel4.getHeight(), 1);
         jPanel4.add(pb);
         jPanel4.repaint();
 
-        degradadoclass jp1 = new degradadoclass();
+        Degradado jp1 = new Degradado();
         jp1.setSize(this.getSize());
         jPanel1.add(jp1);
 
-        degradadoclass jp2 = new degradadoclass();
+        Degradado jp2 = new Degradado();
         jp2.setSize(this.getSize());
         jPanel2.add(jp2);
 
-        degradadoclass jp3 = new degradadoclass();
+        Degradado jp3 = new Degradado();
         jp3.setSize(this.getSize());
         jPanel3.add(jp3);
 
@@ -400,14 +401,14 @@ public class tablaform extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    persona p = new persona();
+    Persona p = new Persona();
     Object[][] dtPer;
     int fila = -1;
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new tablaform().setVisible(true);
+                new Principal().setVisible(true);
             }
         });
     }

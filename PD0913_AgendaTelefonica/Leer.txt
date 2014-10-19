@@ -1,0 +1,1 @@
+Antes de abrir le aplicacion debe ejecutar el script en mysql y crear un usuario llamado contactos, clave contactos, darle permisos para la base contactosdb.
