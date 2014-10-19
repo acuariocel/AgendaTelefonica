@@ -401,7 +401,7 @@ public class Principal extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    Persona p = new Persona();
+    Personas p = new Personas();
     Object[][] dtPer;
     int fila = -1;
 
