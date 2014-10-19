@@ -3,11 +3,10 @@ package contactos;
 import java.sql.*;
 
 public class conectate {
-   static String bd = "dbcontactos";
-   static String login = "root";
-   static String password = "";
-   //static String url = "jdbc:mysql://192.168.1.17/"+bd;
-   static String url = "jdbc:mysql://localhost/"+bd;
+   static String bd = "contactosdb";
+   static String login = "contactos";
+   static String password = "contactos";
+   static String url = "jdbc:mysql://127.0.0.1/"+bd;
 
    Connection conn = null;
 

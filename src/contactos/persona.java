@@ -28,7 +28,7 @@ public class persona {
         }
     }
 
-    public void updatePersona(String id, String name, String paterno, String materno, String mail,String edad) {
+    public void updatePersona(String id, String name, String paterno, String materno, String mail,int edad) {
         try {
             PreparedStatement pstm = con.getConnection().prepareStatement("update persona "
                     + "set nombres = ? ,"
@@ -41,7 +41,7 @@ public class persona {
             pstm.setString(2, paterno);
             pstm.setString(3, materno);
             pstm.setString(4, mail);
-            pstm.setString(5, edad);//agrege 
+            pstm.setInt(5, edad);//agrege 
             pstm.setString(6, String.valueOf(id));//modifice
             pstm.execute();
             pstm.close();

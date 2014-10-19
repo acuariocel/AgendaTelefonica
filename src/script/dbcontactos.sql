@@ -1,5 +1,5 @@
-CREATE DATABASE  IF NOT EXISTS `dbcontactos`;
-USE `dbcontactos`;
+CREATE DATABASE  IF NOT EXISTS `contactosdb`;
+USE `contactosdb`;
 DROP TABLE IF EXISTS `persona`;
 CREATE TABLE `persona` (
   `id` bigint(10) NOT NULL AUTO_INCREMENT,
