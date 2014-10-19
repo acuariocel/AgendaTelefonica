@@ -35,6 +35,8 @@ public class Principal extends javax.swing.JFrame {
         txtmail = new javax.swing.JTextField();
         gy = new javax.swing.JLabel();
         txtedad = new javax.swing.JTextField();
+        txtcelular = new javax.swing.JTextField();
+        gy1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         cmdRegistro = new javax.swing.JButton();
         cmdNuevo = new javax.swing.JButton();
@@ -139,6 +141,14 @@ public class Principal extends javax.swing.JFrame {
 
         gy.setText("Edad");
 
+        txtcelular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcelularActionPerformed(evt);
+            }
+        });
+
+        gy1.setText("Celular");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -152,17 +162,25 @@ public class Principal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(txtpaterno, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtmaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtname, javax.swing.GroupLayout.DEFAULT_SIZE, 492, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(txtmail, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(gy)
-                        .addGap(41, 41, 41)
+                        .addComponent(gy))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtname, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtpaterno, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3)
+                            .addComponent(gy1))))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtmaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtcelular)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
                         .addComponent(txtedad, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(47, 47, 47)))
                 .addContainerGap())
@@ -173,7 +191,9 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtcelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(gy1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -374,15 +394,19 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtnameActionPerformed
 
+    private void txtcelularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcelularActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtcelularActionPerformed
+
     private void updateTabla() {
-        String[] columNames = {"id", "Nombres", "Apellido 1", "Apellido 2", "E-Mail", "Edad"};
+        String[] columNames = {"id", "Nombres", "Apellido 1", "Apellido 2", "E-Mail", "Edad","Celular"};
         // se utiliza la funcion
-        dtPer = p.getDatos();
+        dtPer = p.obtenerPersonas();
 
         // se colocan los datos en la tabla
         DefaultTableModel datos = new DefaultTableModel(dtPer, columNames) {
             boolean[] canEdit = new boolean[]{
-                false, false, false, false, false
+                false, false, false, false, false,false,false
             };
 
             @Override
@@ -425,6 +449,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton cmdNuevo;
     private javax.swing.JButton cmdRegistro;
     private javax.swing.JLabel gy;
+    private javax.swing.JLabel gy1;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -436,6 +461,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabla;
+    private javax.swing.JTextField txtcelular;
     private javax.swing.JTextField txtedad;
     private javax.swing.JTextField txtmail;
     private javax.swing.JTextField txtmaterno;
