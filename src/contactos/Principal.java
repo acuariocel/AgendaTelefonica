@@ -1,5 +1,6 @@
 package contactos;
 
+import java.awt.event.KeyEvent;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
@@ -99,7 +100,7 @@ public class Principal extends javax.swing.JFrame {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 67, Short.MAX_VALUE)
+            .addGap(0, 52, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -131,19 +132,48 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel3.setText("Ap. Materno:");
 
-        jLabel4.setText("e-mail:");
+        jLabel4.setText("Correo");
 
         txtname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtnameActionPerformed(evt);
             }
         });
+        txtname.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtnameKeyTyped(evt);
+            }
+        });
+
+        txtpaterno.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtpaternoKeyTyped(evt);
+            }
+        });
+
+        txtmaterno.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtmaternoKeyTyped(evt);
+            }
+        });
+
+        txtmail.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtmailKeyReleased(evt);
+            }
+        });
 
         gy.setText("Edad");
 
-        txtcelular.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtcelularActionPerformed(evt);
+        txtedad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtedadKeyTyped(evt);
+            }
+        });
+
+        txtcelular.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtcelularKeyTyped(evt);
             }
         });
 
@@ -157,33 +187,29 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel1))
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtmaterno)
+                    .addComponent(txtname)
+                    .addComponent(txtpaterno, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(txtmail, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(gy))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtname, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtpaterno, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
-                            .addComponent(gy1))))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtmaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtcelular)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
+                            .addComponent(jLabel4)
+                            .addComponent(gy1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtmail, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtcelular, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(gy)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtedad, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(47, 47, 47)))
-                .addContainerGap())
+                        .addGap(65, 65, 65))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,17 +224,15 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtpaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(gy)
+                    .addComponent(txtedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(txtmaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(gy)
-                        .addComponent(txtedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel4)
-                        .addComponent(txtmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -313,7 +337,7 @@ public class Principal extends javax.swing.JFrame {
         String mail = txtmail.getText();
         int edad;
         try {
-            edad = Integer.parseInt(txtedad.getText()) ;
+            edad = Integer.parseInt(txtedad.getText());
             
         } catch (NumberFormatException e) {
             edad = -1;
@@ -348,7 +372,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (fila > -1) {
-            int id = Integer.parseInt(""+tabla.getValueAt(fila, 0));
+            int id = Integer.parseInt("" + tabla.getValueAt(fila, 0));
             String name = txtname.getText();
             String pat = txtpaterno.getText();
             String mat = txtmaterno.getText();
@@ -371,19 +395,19 @@ public class Principal extends javax.swing.JFrame {
         Panelcito pp = new Panelcito(w, h);
         this.add(pp);
         this.repaint();
-
+        
         Panelcito pb = new Panelcito(jPanel4.getWidth(), jPanel4.getHeight(), 1);
         jPanel4.add(pb);
         jPanel4.repaint();
-
+        
         Degradado jp1 = new Degradado();
         jp1.setSize(this.getSize());
         jPanel1.add(jp1);
-
+        
         Degradado jp2 = new Degradado();
         jp2.setSize(this.getSize());
         jPanel2.add(jp2);
-
+        
         Degradado jp3 = new Degradado();
         jp3.setSize(this.getSize());
         jPanel3.add(jp3);
@@ -391,24 +415,59 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void txtnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnameActionPerformed
-        // TODO add your handling code here:
+      
     }//GEN-LAST:event_txtnameActionPerformed
 
-    private void txtcelularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcelularActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtcelularActionPerformed
+    private void txtcelularKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcelularKeyTyped
+        soloNumeros(evt);
+    }//GEN-LAST:event_txtcelularKeyTyped
 
+    private void txtnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnameKeyTyped
+        soloLetras(evt);
+    }//GEN-LAST:event_txtnameKeyTyped
+
+    private void txtedadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtedadKeyTyped
+        soloNumeros(evt);       
+    }//GEN-LAST:event_txtedadKeyTyped
+
+    private void txtpaternoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtpaternoKeyTyped
+        soloLetras(evt);        
+    }//GEN-LAST:event_txtpaternoKeyTyped
+
+    private void txtmaternoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtmaternoKeyTyped
+        soloLetras(evt);     
+    }//GEN-LAST:event_txtmaternoKeyTyped
+
+    private void txtmailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtmailKeyReleased
+txtmail.setText(txtmail.getText().toLowerCase());        
+    }//GEN-LAST:event_txtmailKeyReleased
+    
+    public void soloLetras(KeyEvent e) {
+        char c = e.getKeyChar();
+        c = (c + "").toLowerCase().charAt(0);
+        if ((c < 'a' || c > 'z') && c != 'ñ' && c !=' ') {
+            e.consume();
+        }
+    }
+
+    public void soloNumeros(KeyEvent e) {
+        char c = e.getKeyChar();
+        if (c < '0' || c > '9') {
+            e.consume();
+        }
+    }
+    
     private void updateTabla() {
-        String[] columNames = {"id", "Nombres", "Apellido 1", "Apellido 2", "E-Mail", "Edad","Celular"};
+        String[] columNames = {"id", "Nombres", "Apellido 1", "Apellido 2", "E-Mail", "Edad", "Celular"};
         // se utiliza la funcion
         dtPer = p.obtenerPersonas();
 
         // se colocan los datos en la tabla
         DefaultTableModel datos = new DefaultTableModel(dtPer, columNames) {
             boolean[] canEdit = new boolean[]{
-                false, false, false, false, false,false,false
+                false, false, false, false, false, false, false
             };
-
+            
             @Override
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit[columnIndex];
@@ -421,7 +480,7 @@ public class Principal extends javax.swing.JFrame {
         columna.setMinWidth(10);
         columna.setMaxWidth(30);
     }
-
+    
     private void nuevo() {
         txtname.setText("");
         txtpaterno.setText("");
@@ -435,7 +494,7 @@ public class Principal extends javax.swing.JFrame {
     Personas p = new Personas();
     Object[][] dtPer;
     int fila = -1;
-
+    
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
