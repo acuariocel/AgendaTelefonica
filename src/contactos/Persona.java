@@ -2,11 +2,11 @@ package contactos;
 
 import java.sql.*;
 
-public class Person {
+public class Persona {
 
     Conexion con;
 
-    public Person() {
+    public Persona() {
         con = new Conexion();
     }
 
